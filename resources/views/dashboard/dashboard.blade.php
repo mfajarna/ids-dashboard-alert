@@ -58,39 +58,25 @@
 
     @push('js')
         <script>
-//           var myHeaders = new Headers();
-//             myHeaders.append("Authorization", "Basic ")
-//             myHeaders.append("Content-Type", "application/json");
-//             myHeaders.append("Access-Control-Allow-Origin", "*");
-//             myHeaders.append("Access-Control-Allow-Headers","x-custom-header, Content-Type, Accept")
+          var myHeaders = new Headers();
+            myHeaders.append('Access-Control-Allow-Origin', 'http://localhost:8000');
+            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append('Access-Control-Allow-Credentials', 'true');
+            myHeaders.append("Access-Control-Allow-Headers","x-custom-header, Content-Type, Accept")
 
-// var requestOptions = {
-//   method: 'GET',
-//   headers: myHeaders,
-//   redirect: 'follow'
-// };
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow',
+  mode: 'no-cors'
+};
 
-//     fetch('http://192.168.2.8:9200/_search?size=6&pretty=true&_source=source.ip, destination.ip,suricata.eve.alert.signature, http.request, http.response, user_agent', requestOptions)
-//     .then(response => response.text())
-//     .then(result => console.log(result))
-//     .catch(error => console.log('error', error));
-
-
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener("readystatechange", function() {
-  if(this.readyState === 4) {
-    console.log(this.responseText);
-  }
-});
-
-xhr.open("GET", "http://192.168.2.8:9200/_search?size=6&pretty=true&_source=source.ip,%20destination.ip,suricata.eve.alert.signature,%20http.request,%20http.response,%20user_agent");
-xhr.setRequestHeader("Content-Type", "application/json");
+    fetch('http://192.168.2.8:9200/_search?size=6&pretty=true&_source=source.ip,destination.ip,suricata.eve.alert.signature,http.request,http.response,user_agent', requestOptions)
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 
 
-xhr.send();
-
-        </script>
+    </script>
     @endpush
 </x-dashboard>
