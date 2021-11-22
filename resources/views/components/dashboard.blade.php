@@ -56,5 +56,8 @@
   <!-- Custom js for this page-->
   <script src="{{ asset('staradmin') }}/js/dashboard.js"></script>
   <script src="{{ asset('staradmin') }}/js/Chart.roundedBarCharts.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+
+  @stack('js')
 </body>
 </html>

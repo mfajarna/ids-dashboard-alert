@@ -55,4 +55,42 @@
             </div>
         </div>
     @endsection
+
+    @push('js')
+        <script>
+//           var myHeaders = new Headers();
+//             myHeaders.append("Authorization", "Basic ")
+//             myHeaders.append("Content-Type", "application/json");
+//             myHeaders.append("Access-Control-Allow-Origin", "*");
+//             myHeaders.append("Access-Control-Allow-Headers","x-custom-header, Content-Type, Accept")
+
+// var requestOptions = {
+//   method: 'GET',
+//   headers: myHeaders,
+//   redirect: 'follow'
+// };
+
+//     fetch('http://192.168.2.8:9200/_search?size=6&pretty=true&_source=source.ip, destination.ip,suricata.eve.alert.signature, http.request, http.response, user_agent', requestOptions)
+//     .then(response => response.text())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
+
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "http://192.168.2.8:9200/_search?size=6&pretty=true&_source=source.ip,%20destination.ip,suricata.eve.alert.signature,%20http.request,%20http.response,%20user_agent");
+xhr.setRequestHeader("Content-Type", "application/json");
+
+
+xhr.send();
+
+        </script>
+    @endpush
 </x-dashboard>
