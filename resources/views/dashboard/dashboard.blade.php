@@ -1,5 +1,8 @@
 <x-dashboard>
     @section('content')
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+      </div>
         <div class="d-sm-flex align-items-center justify-content-between border-bottom">
             <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
@@ -57,7 +60,7 @@
                                 <div class="card-body">
                                     <div class="d-sm-flex justify-content-between align-items-start">
                                         <div>
-                                            <h4 class="card-title card-title-dash">Event</h4>
+                                            <h4 class="card-title card-title-dash mb-4">Event</h4>
                                         </div>
                                     </div>
                                     <div class="table-responsive  mt-1">
@@ -68,6 +71,7 @@
                                                     <th>Source IP</th>
                                                     <th>Signature</th>
                                                     <th>User Agent</th>
+                                                    <th>Timestamp</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -83,7 +87,9 @@
 
     @push('js')
         <script>
-
+        $(window).on("load",function(){
+          $(".loader-wrapper").fadeOut("slow");
+        });
             $.ajax({
                         url: "{!! URL::to('getResponse') !!}",
                         type: 'GET',
@@ -106,12 +112,17 @@
                         [0, "ASC"],
                         [1, "ASC"],
                         [2, "ASC"],
-                        [3, "ASC"]
+                        [3, "ASC"],
+                        [4, "ASC"]
                     ],
                     ajax:{
                         url: "{!! URL::to('getResponseTable') !!}",
                         dataSrc: 'hits',
                         processing: true,
+                        // success: function(res)
+                        // {
+                        //     console.log(res)
+                        // }
                     },
                     columnDefs:[
                         { targets: '_all', visible: true},
@@ -131,6 +142,10 @@
                             "targets": 3,
                             data: "_source.user_agent.original"
                         },
+                        {
+                            "targets": 4,
+                            data:"_source.@timestamp"
+                        }
                     ]
                 })
             })

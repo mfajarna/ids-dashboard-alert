@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardAdminController::class, 'index']);
+Route::get('/dashboard', [DashboardAdminController::class, 'index']);
+Route::get('/', function(){
+    return view('dashboard.loading');
+});
 Route::get('/getResponse', [DashboardAdminController::class,'getReponse']);
 Route::get('/getResponseTable', [DashboardAdminController::class,'getReponseTable']);

@@ -27,7 +27,7 @@ class DashboardAdminController extends Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS =>'{
-                "_source": ["source.ip", "destination.ip", "suricata.eve.alert.signature", "http.request", "http.response", "user_agent"],
+                "_source": ["source.ip", "destination.ip", "suricata.eve.alert.signature", "http.request", "http.response", "user_agent","@timestamp"],
                 "query": {
                     "exists": {
                         "field": "suricata.eve.alert.signature"
@@ -62,7 +62,7 @@ class DashboardAdminController extends Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS =>'{
-                "_source": ["source.ip", "destination.ip", "suricata.eve.alert.signature", "http.request", "http.response", "user_agent"],
+                "_source": ["source.ip", "destination.ip", "suricata.eve.alert.signature", "http.request", "http.response", "user_agent","@timestamp"],
                 "query": {
                     "exists": {
                         "field": "suricata.eve.alert.signature"
