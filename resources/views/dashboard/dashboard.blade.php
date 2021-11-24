@@ -57,7 +57,7 @@
                                 <div class="card-body">
                                     <div class="d-sm-flex justify-content-between align-items-start">
                                         <div>
-                                            <h4 class="card-title card-title-dash">Overview Malware</h4>
+                                            <h4 class="card-title card-title-dash">Event</h4>
                                         </div>
                                     </div>
                                     <div class="table-responsive  mt-1">
@@ -83,8 +83,6 @@
 
     @push('js')
         <script>
-
-            var items = [];
 
             $.ajax({
                         url: "{!! URL::to('getResponse') !!}",
@@ -114,8 +112,6 @@
                         url: "{!! URL::to('getResponseTable') !!}",
                         dataSrc: 'hits',
                         processing: true,
-
-
                     },
                     columnDefs:[
                         { targets: '_all', visible: true},
@@ -137,35 +133,6 @@
                         },
                     ]
                 })
-
-
-                // $('#table-data').DataTable({
-                //     processing: true,
-                //     serverSide: true,
-                //     "order":[
-                //         [0, "ASC"],
-                //         [1, "ASC"],
-                //         [2, "ASC"],
-                //         [3, "ASC"]
-                //     ],
-                //     ajax:{
-                //             url: "{!! URL::to('getResponseTable') !!}",
-                //             success: function(res){
-                //                 // rez = JSON.stringify(res)
-                //                 console.log('tab', res)
-                //             }
-                //         },
-
-                //     columnDefs:[
-                //         { targets: '_all', visible: true},
-                //         {
-                //                 "targets": 0,
-                //                 data: '_index',
-                //                 name: '_index'
-                //         },
-                //     ]
-
-                // })
             })
 
 
