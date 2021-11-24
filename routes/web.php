@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
-    return view('dashboard.dashboard');
-});
+Route::get('/', [DashboardAdminController::class, 'index']);
+Route::get('/getResponse', [DashboardAdminController::class,'getReponse']);
+Route::get('/getResponseTable', [DashboardAdminController::class,'getReponseTable']);

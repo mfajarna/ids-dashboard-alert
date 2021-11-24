@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('staradmin') }}/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="{{ asset('staradmin') }}/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="{{ asset('staradmin') }}/js/select.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
     <link rel="stylesheet" href="{{ asset('staradmin') }}/css/vertical-layout-light/style.css">
     <link rel="shortcut icon" href="{{ asset('staradmin') }}/images/favicon.png" />
 </head>
@@ -56,7 +57,9 @@
   <!-- Custom js for this page-->
   <script src="{{ asset('staradmin') }}/js/dashboard.js"></script>
   <script src="{{ asset('staradmin') }}/js/Chart.roundedBarCharts.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" defer></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js" defer></script>
 
   @stack('js')
 </body>
