@@ -70,7 +70,6 @@
                                                     <th>Timestamp</th>
                                                     <th>Source IP</th>
                                                     <th>Destination IP</th>
-                                                    <th>User Agent</th>
                                                     <th>Signature</th>
                                                 </tr>
                                             </thead>
@@ -114,7 +113,7 @@
                         [1, "ASC"],
                         [2, "ASC"],
                         [3, "ASC"],
-                        [4, "ASC"]
+
                     ],
                     ajax:{
                         url: "{!! URL::to('getResponseTable') !!}",
@@ -141,10 +140,6 @@
                         },
                         {
                             "targets": 3,
-                            data: "_source.user_agent.original"
-                        },
-                        {
-                            "targets": 4,
                             data:"_source.suricata.eve.alert.signature"
                         }
                     ]
