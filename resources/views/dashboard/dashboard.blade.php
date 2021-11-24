@@ -105,6 +105,7 @@
 
             $(document).ready(function (){
 
+                $.fn.dataTable.ext.errMode = 'none';
                 var t = $('#table-data');
 
                 t.DataTable({
