@@ -67,11 +67,11 @@
                                         <table class="table select-table" id="table-data">
                                             <thead>
                                                 <tr>
-                                                    <th>Destination IP</th>
-                                                    <th>Source IP</th>
-                                                    <th>Signature</th>
-                                                    <th>User Agent</th>
                                                     <th>Timestamp</th>
+                                                    <th>Source IP</th>
+                                                    <th>Destination IP</th>
+                                                    <th>User Agent</th>
+                                                    <th>Signature</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -129,7 +129,7 @@
                         { targets: '_all', visible: true},
                         {
                             "targets": 0,
-                            data: "_source.destination.ip"
+                            data: "_source.@timestamp"
                         },
                         {
                             "targets": 1,
@@ -137,7 +137,7 @@
                         },
                         {
                             "targets": 2,
-                            data: "_source.suricata.eve.alert.signature"
+                            data: "_source.destination.ip"
                         },
                         {
                             "targets": 3,
@@ -145,7 +145,7 @@
                         },
                         {
                             "targets": 4,
-                            data:"_source.@timestamp"
+                            data:"_source.suricata.eve.alert.signature"
                         }
                     ]
                 })
