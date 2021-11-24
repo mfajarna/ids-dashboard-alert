@@ -63,11 +63,11 @@
                                             <h4 class="card-title card-title-dash mb-4">Event</h4>
                                         </div>
                                     </div>
-                                    <div class="table-responsive  mt-1">
+                                    <div class="table-responsive mt-1">
                                         <table class="table select-table" id="table-data">
                                             <thead>
-                                                <tr>
-                                                    <th>Timestamp</th>
+                                                <tr align="center">
+                                                    <th width="35%">Timestamp</th>
                                                     <th>Source IP</th>
                                                     <th>Destination IP</th>
                                                     <th>Signature</th>

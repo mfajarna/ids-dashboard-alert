@@ -53,7 +53,7 @@ class DashboardAdminController extends Controller
         $curl = curl_init();
 
             curl_setopt_array($curl, array(
-            CURLOPT_URL => '192.168.2.8:9200/_search?size=5000&pretty=true',
+            CURLOPT_URL => '192.168.2.8:9200/_search?size=100&pretty=true',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -81,6 +81,16 @@ class DashboardAdminController extends Controller
             $result = json_decode($response, true);
             $arr = $result['hits'];
 
-            return response()->json($arr);
+            $resource = $result['hits'];
+
+            dd($result);
+
+            // foreach($resource as $key => $val)
+            // {
+            //     dd($val);
+            // }
+            // dd($resource);
+
+            // return response()->json($arr);
     }
 }
