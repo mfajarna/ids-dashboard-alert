@@ -18,7 +18,7 @@ class DashboardAdminController extends Controller
         $curl = curl_init();
 
             curl_setopt_array($curl, array(
-            CURLOPT_URL => '192.168.2.8:9200/_search?size=2500&pretty=true',
+            CURLOPT_URL => '192.168.2.8:9200/_search?size=5000&pretty=true',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -53,7 +53,7 @@ class DashboardAdminController extends Controller
         $curl = curl_init();
 
             curl_setopt_array($curl, array(
-            CURLOPT_URL => '192.168.2.8:9200/_search?size=2500&pretty=true',
+            CURLOPT_URL => '192.168.2.8:9200/_search?size=5000&pretty=true',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
