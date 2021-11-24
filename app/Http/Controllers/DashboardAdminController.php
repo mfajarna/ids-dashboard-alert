@@ -83,7 +83,7 @@ class DashboardAdminController extends Controller
 
             $resource = $result['hits'];
 
-            dd($result);
+
 
             // foreach($resource as $key => $val)
             // {
@@ -91,6 +91,6 @@ class DashboardAdminController extends Controller
             // }
             // dd($resource);
 
-            // return response()->json($arr);
+            return response()->json($arr);
     }
 }
